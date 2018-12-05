@@ -13,8 +13,8 @@ library(stringr)
 #downoad the source files and save in working directory
 #extract the zip file contents inside the samsung_wearable folder
 
-##download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip','samsung_wearable.zip')
-##unzip(zipfile = 'samsung_wearable.zip',exdir='./samsung_wearable')
+download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip','samsung_wearable.zip')
+unzip(zipfile = 'samsung_wearable.zip',exdir='./samsung_wearable')
 
 #read meta data files
 
@@ -63,7 +63,8 @@ complete_data <- rbind(test_data,train_data)
 complete_data <- dplyr::inner_join(complete_data,activities,by = "Activity_Key",copy = TRUE)
 
 #Label the dataset with descriptive variable names 
-#time dimesion
+
+#time dimension
 names(complete_data) <- gsub("tBodyAcc-","Body acceleration signal in time domain from the accelerometer ",names(complete_data))
 names(complete_data) <- gsub("^tBodyGyro-","Body acceleration signal in time domain from the gyroscope ",names(complete_data))
 names(complete_data) <- gsub("^tBodyAccMag-","Magnitude of body acceleration signal in time domain from the accelerometer ",names(complete_data))
@@ -74,6 +75,7 @@ names(complete_data) <- gsub("^tBodyGyroJerk-","Body acceleration jerk signal in
 names(complete_data) <- gsub("^tBodyGyroJerkMag-","Magnitude of body acceleration jerk signal in time domain from the gyroscope ",names(complete_data))
 names(complete_data) <- gsub("^tGravityAcc-","Gravity acceleration signal in time domain from the accelerometer ",names(complete_data))
 names(complete_data) <- gsub("^tGravityAccMag-","Magnitude of gravity acceleration signal in time domain from the accelerometer ",names(complete_data))
+
 #frequency dimension
 names(complete_data) <- gsub("^fBodyAcc-","Body acceleration signal in frequency domain from the accelerometer with Fast Fourier Transform applied ",names(complete_data))
 names(complete_data) <- gsub("^fBodyAccMag-","Magnitude of body acceleration signal in frequency domain from the accelerometer with Fast Fourier Transform applied ",names(complete_data))
