@@ -66,26 +66,26 @@ complete_data <- dplyr::inner_join(complete_data,activities,by = "Activity_Key",
 
 #time dimension
 names(complete_data) <- gsub("tBodyAcc-","Body acceleration signal in time domain from the accelerometer ",names(complete_data))
-names(complete_data) <- gsub("^tBodyGyro-","Body acceleration signal in time domain from the gyroscope ",names(complete_data))
-names(complete_data) <- gsub("^tBodyAccMag-","Magnitude of body acceleration signal in time domain from the accelerometer ",names(complete_data))
-names(complete_data) <- gsub("^tBodyAccJerk-","Body acceleration jerk signal in time domain from the accelerometer ",names(complete_data))
-names(complete_data) <- gsub("^tBodyAccJerkMag-","Magnitude of body acceleration jerk signal in time domain from the accelerometer  ",names(complete_data))
-names(complete_data) <- gsub("^tBodyGyroMag-","Magnitude of body acceleration signal in time domain from the gyroscope  ",names(complete_data))
-names(complete_data) <- gsub("^tBodyGyroJerk-","Body acceleration jerk signal in time domain from the gyroscope  ",names(complete_data))
-names(complete_data) <- gsub("^tBodyGyroJerkMag-","Magnitude of body acceleration jerk signal in time domain from the gyroscope ",names(complete_data))
-names(complete_data) <- gsub("^tGravityAcc-","Gravity acceleration signal in time domain from the accelerometer ",names(complete_data))
-names(complete_data) <- gsub("^tGravityAccMag-","Magnitude of gravity acceleration signal in time domain from the accelerometer ",names(complete_data))
+names(complete_data) <- gsub("tBodyGyro-","Body acceleration signal in time domain from the gyroscope ",names(complete_data))
+names(complete_data) <- gsub("tBodyAccMag-","Magnitude of body acceleration signal in time domain from the accelerometer ",names(complete_data))
+names(complete_data) <- gsub("tBodyAccJerk-","Body acceleration jerk signal in time domain from the accelerometer ",names(complete_data))
+names(complete_data) <- gsub("tBodyAccJerkMag-","Magnitude of body acceleration jerk signal in time domain from the accelerometer  ",names(complete_data))
+names(complete_data) <- gsub("tBodyGyroMag-","Magnitude of body acceleration signal in time domain from the gyroscope  ",names(complete_data))
+names(complete_data) <- gsub("tBodyGyroJerk-","Body acceleration jerk signal in time domain from the gyroscope  ",names(complete_data))
+names(complete_data) <- gsub("tBodyGyroJerkMag-","Magnitude of body acceleration jerk signal in time domain from the gyroscope ",names(complete_data))
+names(complete_data) <- gsub("tGravityAcc-","Gravity acceleration signal in time domain from the accelerometer ",names(complete_data))
+names(complete_data) <- gsub("tGravityAccMag-","Magnitude of gravity acceleration signal in time domain from the accelerometer ",names(complete_data))
 
 #frequency dimension
-names(complete_data) <- gsub("^fBodyAcc-","Body acceleration signal in frequency domain from the accelerometer with Fast Fourier Transform applied ",names(complete_data))
-names(complete_data) <- gsub("^fBodyAccMag-","Magnitude of body acceleration signal in frequency domain from the accelerometer with Fast Fourier Transform applied ",names(complete_data))
-names(complete_data) <- gsub("^fBodyGyro-","Body acceleration signal in frequency domain from the gyroscope with Fast Fourier Transform applied ",names(complete_data))
-names(complete_data) <- gsub("^fBodyBodyAccJerkMag-","Magnitude of body acceleration jerk signal in frequency domain from the accelerometer with Fast Fourier Transform applied ",names(complete_data))
-names(complete_data) <- gsub("^fBodyBodyGyroJerkMag-","Magnitude of body acceleration jerk signal in frequency domain from the gyroscope ",names(complete_data))
-names(complete_data) <- gsub("^fBodyBodyGyroMag-","Magnitude of body acceleration signal in frequency domain from the gyroscope ",names(complete_data))
-names(complete_data) <- gsub("^fBodyAccJerk-","Body acceleration jerk signal in frequency domain from the accelerometer ",names(complete_data))
+names(complete_data) <- gsub("fBodyAcc-","Body acceleration signal in frequency domain from the accelerometer with Fast Fourier Transform applied ",names(complete_data))
+names(complete_data) <- gsub("fBodyAccMag-","Magnitude of body acceleration signal in frequency domain from the accelerometer with Fast Fourier Transform applied ",names(complete_data))
+names(complete_data) <- gsub("fBodyGyro-","Body acceleration signal in frequency domain from the gyroscope with Fast Fourier Transform applied ",names(complete_data))
+names(complete_data) <- gsub("fBodyBodyAccJerkMag-","Magnitude of body acceleration jerk signal in frequency domain from the accelerometer with Fast Fourier Transform applied ",names(complete_data))
+names(complete_data) <- gsub("fBodyBodyGyroJerkMag-","Magnitude of body acceleration jerk signal in frequency domain from the gyroscope ",names(complete_data))
+names(complete_data) <- gsub("fBodyBodyGyroMag-","Magnitude of body acceleration signal in frequency domain from the gyroscope ",names(complete_data))
+names(complete_data) <- gsub("fBodyAccJerk-","Body acceleration jerk signal in frequency domain from the accelerometer ",names(complete_data))
 
 # Create a tidy dataset with the average of each variable for each activity and each subject.
 tidy_data <- complete_data %>% dplyr::group_by(Subject_Key,Activity_Name) %>% summarise_all(mean)
 
-write.table(tidy_data, "Samsung_TidyData.txt", row.name=FALSE)
+write.table(tidy_data, "Samsung_TidyData.txt", row.name=FALSE,sep=",")
