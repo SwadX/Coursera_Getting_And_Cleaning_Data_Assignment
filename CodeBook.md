@@ -115,6 +115,8 @@ The complete list of variables of each feature vector is available in 'features.
 ## run_analysis.R output variables:
 
 The script output is a tidy dataset that contains variables that store average of each variable for each activity and each subject.
+The dimension of the tidy dataset is 180 rows and 69 variables.
+
 The variable names are
 "Body acceleration signal in time domain from the accelerometer mean()-X","Body acceleration signal in time domain from the accelerometer mean()-Y",
 "Body acceleration signal in time domain from the accelerometer mean()-Z","Body acceleration signal in time domain from the accelerometer std()-X",
